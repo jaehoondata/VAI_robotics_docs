@@ -6,20 +6,20 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    to: '/docs/onboarding/dev-environment',
-    title: <Translate id="homepage.feature.onboarding.title">온보딩</Translate>,
+    to: '/docs/meta-quest-3/overview',
+    title: <Translate id="homepage.feature.quest.title">Meta Quest 3</Translate>,
     description: (
-      <Translate id="homepage.feature.onboarding.body">
-        팀에 새로 합류했다면 여기부터. 개발 환경 설정을 처음부터 따라 할 수 있습니다.
+      <Translate id="homepage.feature.quest.body">
+        VR teleoperation에 사용하는 Meta Quest 3의 설정과 기능을 정리했습니다.
       </Translate>
     ),
   },
   {
-    to: '/docs/guides/example-workflow',
-    title: <Translate id="homepage.feature.guides.title">작업 가이드</Translate>,
+    to: '/docs/ai-worker/overview',
+    title: <Translate id="homepage.feature.aiworker.title">AI WORKER</Translate>,
     description: (
-      <Translate id="homepage.feature.guides.body">
-        자주 반복되는 작업의 절차를 단계별로 정리했습니다.
+      <Translate id="homepage.feature.aiworker.body">
+        ROBOTIS의 semi-humanoid 로봇 FFW-SG2의 구성과 사용법을 다룹니다.
       </Translate>
     ),
   },

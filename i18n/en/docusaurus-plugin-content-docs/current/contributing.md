@@ -56,7 +56,7 @@ The sidebar is generated from the folder structure, so there is nothing to regis
 
 ## Translations
 
-Korean is the default language. To translate a page into English, create it at the same path under `i18n/en/docusaurus-plugin-content-docs/current/`. For example, the English version of `docs/onboarding/dev-environment.md` lives at `i18n/en/docusaurus-plugin-content-docs/current/onboarding/dev-environment.md`.
+Korean is the default language. To translate a page into English, create it at the same path under `i18n/en/docusaurus-plugin-content-docs/current/`. For example, the English version of `docs/ai-worker/setup.md` lives at `i18n/en/docusaurus-plugin-content-docs/current/ai-worker/setup.md`.
 
 Pages without a translation fall back to the Korean original on the English site, so you can translate the important ones first and leave the rest.
 

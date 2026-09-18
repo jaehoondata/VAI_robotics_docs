@@ -56,7 +56,7 @@ title: 사이드바에 표시될 제목
 
 ## 영어 문서
 
-기본 언어는 한국어입니다. 영어 번역이 필요한 문서는 같은 경로로 `i18n/en/docusaurus-plugin-content-docs/current/` 아래에 만듭니다. 예를 들어 `docs/onboarding/dev-environment.md` 의 영어판은 `i18n/en/docusaurus-plugin-content-docs/current/onboarding/dev-environment.md` 입니다.
+기본 언어는 한국어입니다. 영어 번역이 필요한 문서는 같은 경로로 `i18n/en/docusaurus-plugin-content-docs/current/` 아래에 만듭니다. 예를 들어 `docs/ai-worker/setup.md` 의 영어판은 `i18n/en/docusaurus-plugin-content-docs/current/ai-worker/setup.md` 입니다.
 
 번역 파일이 없는 문서는 영어 사이트에서도 한국어 원문이 그대로 보입니다. 따라서 급한 문서부터 하나씩 번역하면 됩니다.
 

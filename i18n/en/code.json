@@ -2,18 +2,6 @@
   "homepage.cta": {
     "message": "Read the docs"
   },
-  "homepage.feature.onboarding.title": {
-    "message": "Onboarding"
-  },
-  "homepage.feature.onboarding.body": {
-    "message": "New to the team? Start here. Set up your development environment from scratch."
-  },
-  "homepage.feature.guides.title": {
-    "message": "Guides"
-  },
-  "homepage.feature.guides.body": {
-    "message": "Step-by-step procedures for the tasks we do over and over."
-  },
   "homepage.feature.contributing.title": {
     "message": "Contributing"
   },
@@ -350,5 +338,21 @@
   "homepage.tagline": {
     "message": "Internal documentation for the VAI team",
     "description": "The tagline on the homepage hero"
+  },
+  "homepage.feature.quest.title": {
+    "message": "Meta Quest 3",
+    "description": "Homepage card title"
+  },
+  "homepage.feature.quest.body": {
+    "message": "Setup and capabilities of the Meta Quest 3 we use for VR teleoperation.",
+    "description": "Homepage card body"
+  },
+  "homepage.feature.aiworker.title": {
+    "message": "AI WORKER",
+    "description": "Homepage card title"
+  },
+  "homepage.feature.aiworker.body": {
+    "message": "Architecture and operation of the ROBOTIS semi-humanoid FFW-SG2.",
+    "description": "Homepage card body"
   }
 }

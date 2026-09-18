@@ -1,8 +1,0 @@
-{
-  "label": "온보딩",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "팀에 새로 합류했을 때 처음부터 따라 하면 되는 준비 과정입니다."
-  }
-}

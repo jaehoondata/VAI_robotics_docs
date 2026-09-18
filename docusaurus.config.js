@@ -117,7 +117,8 @@ const config = {
             title: '문서',
             items: [
               {label: '시작하기', to: '/docs/intro'},
-              {label: '온보딩', to: '/docs/onboarding/dev-environment'},
+              {label: 'Meta Quest 3', to: '/docs/meta-quest-3/overview'},
+              {label: 'AI WORKER', to: '/docs/ai-worker/overview'},
               {label: '문서 기여 방법', to: '/docs/contributing'},
             ],
           },

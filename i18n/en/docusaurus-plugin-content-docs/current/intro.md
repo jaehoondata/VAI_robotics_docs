@@ -1,20 +1,20 @@
 ---
 sidebar_position: 1
-title: Getting Started
+title: Intro
 ---
 
-# VAI Worker Docs
+# V&AI Lab - Robotis AI Worker Docs
 
-Internal documentation for the VAI team. This is where we keep the things people look up repeatedly: how we work, how to set up a development environment, and how the systems fit together.
+Internal documentation for the Vision & AI Lab Robotics team at Korea University. This is where we keep the things people look up repeatedly: how the equipment works, how to set up a development environment, and the procedures we follow.
 
 ## Structure
 
 | Section | Contents |
 | --- | --- |
-| **Onboarding** | Environment setup and account preparation for people joining the team |
-| **Guides** | Step-by-step procedures for recurring tasks |
-| **Systems** | Hardware and software architecture, and how things behave |
-| **Contributing** | How to add or fix a page on this site |
+| **Meta Quest 3** | Setup and capabilities of the Meta Quest 3 headset used for VR teleoperation. |
+| **AI WORKER** | Architecture and operation of the ROBOTIS semi-humanoid AI Worker FFW-SG2. |
+| **Guides** | Step-by-step procedures for tasks that involve both devices. |
+| **Contributing** | How to add or fix a page on this site. |
 
 ## Something wrong or missing?
 

@@ -15,10 +15,6 @@
     "message": "Getting Started",
     "description": "The label of footer link with label=시작하기 linking to /docs/intro"
   },
-  "link.item.label.온보딩": {
-    "message": "Onboarding",
-    "description": "The label of footer link with label=온보딩 linking to /docs/onboarding/dev-environment"
-  },
   "link.item.label.문서 기여 방법": {
     "message": "Contributing",
     "description": "The label of footer link with label=문서 기여 방법 linking to /docs/contributing"
@@ -42,5 +38,13 @@
   "copyright": {
     "message": "Copyright © 2026 VAI. Built with Docusaurus.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Meta Quest 3": {
+    "message": "Meta Quest 3",
+    "description": "The label of footer link with label=Meta Quest 3 linking to /docs/meta-quest-3/overview"
+  },
+  "link.item.label.AI WORKER": {
+    "message": "AI WORKER",
+    "description": "The label of footer link with label=AI WORKER linking to /docs/ai-worker/overview"
   }
 }
