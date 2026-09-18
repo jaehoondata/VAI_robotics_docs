@@ -1,50 +1,48 @@
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    to: '/docs/onboarding/dev-environment',
+    title: <Translate id="homepage.feature.onboarding.title">온보딩</Translate>,
     description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+      <Translate id="homepage.feature.onboarding.body">
+        팀에 새로 합류했다면 여기부터. 개발 환경 설정을 처음부터 따라 할 수 있습니다.
+      </Translate>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    to: '/docs/guides/example-workflow',
+    title: <Translate id="homepage.feature.guides.title">작업 가이드</Translate>,
     description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+      <Translate id="homepage.feature.guides.body">
+        자주 반복되는 작업의 절차를 단계별로 정리했습니다.
+      </Translate>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    to: '/docs/contributing',
+    title: <Translate id="homepage.feature.contributing.title">문서 기여</Translate>,
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+      <Translate id="homepage.feature.contributing.body">
+        문서가 틀렸거나 빠져 있다면 직접 고칠 수 있습니다. 방법을 안내합니다.
+      </Translate>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({to, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+      <Link to={to} className={styles.card}>
+        <Heading as="h3" className={styles.cardTitle}>
+          {title}
+        </Heading>
+        <p className={styles.cardBody}>{description}</p>
+      </Link>
     </div>
   );
 }

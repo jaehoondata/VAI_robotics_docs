@@ -1,11 +1,32 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.card {
+  display: block;
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.cardBody {
+  margin: 0;
+  color: var(--ifm-font-color-secondary);
 }

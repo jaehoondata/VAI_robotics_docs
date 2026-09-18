@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.온보딩": {
+    "message": "Onboarding",
+    "description": "The label for category '온보딩' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.온보딩.link.generated-index.description": {
+    "message": "Everything a new team member needs to get set up, from the beginning.",
+    "description": "The generated-index page description for category '온보딩' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.작업 가이드": {
+    "message": "Guides",
+    "description": "The label for category '작업 가이드' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.작업 가이드.link.generated-index.description": {
+    "message": "Step-by-step procedures for recurring tasks.",
+    "description": "The generated-index page description for category '작업 가이드' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.시스템": {
+    "message": "Systems",
+    "description": "The label for category '시스템' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.시스템.link.generated-index.description": {
+    "message": "Hardware and software architecture, and how things behave.",
+    "description": "The generated-index page description for category '시스템' in sidebar 'docsSidebar'"
+  }
+}

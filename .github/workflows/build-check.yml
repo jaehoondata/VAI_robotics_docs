@@ -1,0 +1,27 @@
+name: Build check
+
+# Pull Request가 올라오면 사이트가 정상적으로 빌드되는지만 확인합니다.
+# (링크 깨짐, MDX 문법 오류 등이 여기서 걸립니다)
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build

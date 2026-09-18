@@ -1,19 +1,9 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+공지:
+  label: 공지
+  permalink: /notice
+  description: 팀 전체에 공유되는 공지
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+문서:
+  label: 문서
+  permalink: /docs-update
+  description: 문서 추가 및 변경 사항

@@ -1,43 +1,44 @@
 // @ts-check
 // `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const GITHUB_REPO = 'https://github.com/jaehoondata/VAI_worker_docs';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'VAI Worker Docs',
+  tagline: 'VAI 팀 내부 문서',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // GitHub Pages 배포 주소: https://jaehoondata.github.io/VAI_worker_docs/
+  url: 'https://jaehoondata.github.io',
+  baseUrl: '/VAI_worker_docs/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'jaehoondata',
+  projectName: 'VAI_worker_docs',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
+
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ko',
+    locales: ['ko', 'en'],
+    localeConfigs: {
+      ko: {label: '한국어', htmlLang: 'ko-KR'},
+      en: {label: 'English', htmlLang: 'en-US'},
+    },
   },
 
   presets: [
@@ -47,22 +48,25 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // 각 페이지 하단 "이 페이지 편집하기" 링크가 이 주소로 연결됩니다.
+          editUrl: `${GITHUB_REPO}/tree/main/`,
+          // 번역된 페이지는 해당 언어 파일로 연결
+          editLocalizedFiles: true,
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
+          blogTitle: '업데이트',
+          blogDescription: '문서 및 시스템 변경 사항 공지',
+          blogSidebarTitle: '최근 글',
+          postsPerPage: 10,
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
+          editUrl: `${GITHUB_REPO}/tree/main/`,
+          editLocalizedFiles: true,
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -77,27 +81,30 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'VAI Worker Docs',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'VAI Worker Docs',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: '문서',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: '업데이트', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'localeDropdown',
+            position: 'right',
+          },
+          {
+            href: GITHUB_REPO,
             label: 'GitHub',
             position: 'right',
           },
@@ -107,50 +114,34 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '문서',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
+              {label: '시작하기', to: '/docs/intro'},
+              {label: '온보딩', to: '/docs/onboarding/dev-environment'},
+              {label: '문서 기여 방법', to: '/docs/contributing'},
             ],
           },
           {
-            title: 'Community',
+            title: '팀',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
+              {label: 'GitHub 저장소', href: GITHUB_REPO},
+              {label: '이슈 등록', href: `${GITHUB_REPO}/issues`},
             ],
           },
           {
-            title: 'More',
+            title: '더 보기',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+              {label: '업데이트', to: '/blog'},
+              {label: 'Docusaurus 문서', href: 'https://docusaurus.io/'},
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} VAI. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash', 'json', 'yaml', 'python'],
       },
     }),
 };
