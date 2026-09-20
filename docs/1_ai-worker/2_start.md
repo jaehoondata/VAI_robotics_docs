@@ -45,14 +45,14 @@ AI WORKER는 전원을 켠 직후 **torque-off** 상태입니다. DYNAMIXEL과 �
 
 우리 랩 장비 기준 호스트명은 `ffw-SNPR48A1115.local`, 계정은 `robotis` 입니다.
 
-```bash
+```bash title="맥북 터미널"
 ssh robotis@ffw-SNPR48A1115.local     # System password: root
 docker exec -it ai_worker bash
 ```
 
 `~/.ssh/config` 에 등록해 두면 편합니다.
 
-```
+```text title="~/.ssh/config"
 Host ffw-SNPR48A1115.local
     HostName ffw-SNPR48A1115.local
     User robotis
@@ -69,7 +69,7 @@ ssh-copy-id robotis@ffw-SNPR48A1115.local
 
 컨테이너 안에서 실행합니다. `worker_*` 명령은 `scripts/worker_aliases.sh` 에 정의된 단축 명령입니다.
 
-```bash
+```bash title="Orin 컨테이너"
 worker_bringup
 # = ros2 launch ffw_bringup ffw_sg2_follower_ai.launch.py
 ```

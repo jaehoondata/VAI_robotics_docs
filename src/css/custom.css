@@ -1,30 +1,200 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * 전역 스타일. Infima 변수를 덮어쓰고, 한국어 문서 가독성을 위한 규칙을 추가합니다.
  */
 
-/* You can override the default Infima variables here. */
+/* ---------- 색상 ---------- */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #8b0029;
+  --ifm-color-primary-dark: #7d0025;
+  --ifm-color-primary-darker: #760023;
+  --ifm-color-primary-darkest: #61001d;
+  --ifm-color-primary-light: #99002d;
+  --ifm-color-primary-lighter: #a0002f;
+  --ifm-color-primary-lightest: #b50035;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* ---------- 타이포그래피 ---------- */
+:root {
+  --ifm-font-family-base: 'Pretendard Variable', Pretendard, -apple-system,
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', BlinkMacSystemFont,
+    system-ui, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.8;
+  --ifm-paragraph-margin-bottom: 1.1rem;
+  --ifm-heading-line-height: 1.5;
+  --ifm-code-font-size: 88%;
+  --ifm-leading-desktop: 1.4;
+}
+
+/*
+ * 한국어는 단어 중간에서 줄이 바뀌면 읽기 어렵습니다.
+ * keep-all 로 어절 단위 줄바꿈을 강제하되, 긴 URL·명령어는 끊어지도록 둡니다.
+ */
+.markdown,
+.markdown p,
+.markdown li,
+.markdown td,
+.markdown th,
+.navbar__item,
+.menu__link,
+.table-of-contents__link,
+.footer__item {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ---------- 제목 ---------- */
+.markdown h2 {
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 1.6rem;
+}
+
+.markdown h2:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.markdown h3 {
+  margin-top: 2.25rem;
+  font-size: 1.25rem;
+}
+
+.markdown h4 {
+  margin-top: 1.75rem;
+  font-size: 1.05rem;
+}
+
+/* ---------- 목록 ---------- */
+.markdown ul,
+.markdown ol {
+  padding-left: 1.35rem;
+}
+
+.markdown li + li {
+  margin-top: 0.4rem;
+}
+
+.markdown li > ul,
+.markdown li > ol {
+  margin-top: 0.4rem;
+}
+
+/* ---------- 표 ---------- */
+.markdown table {
+  display: table;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  border-collapse: collapse;
+}
+
+.markdown table thead tr {
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 2px solid var(--ifm-color-emphasis-300);
+}
+
+.markdown table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 0.65rem 0.9rem;
+  vertical-align: top;
+  text-align: left;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.markdown table tbody tr:nth-child(even) {
+  background: var(--ifm-color-emphasis-0);
+}
+
+.markdown table tbody tr:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* 표 첫 열은 대개 항목 이름이라 조금 강조합니다. */
+.markdown table tbody td:first-child {
+  font-weight: 500;
+}
+
+/* 좁은 화면에서는 표를 가로로 스크롤합니다. */
+@media screen and (max-width: 768px) {
+  .markdown table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .markdown table td {
+    white-space: normal;
+    min-width: 12rem;
+  }
+}
+
+/* ---------- 인라인 코드 ---------- */
+.markdown :not(pre) > code {
+  padding: 0.15rem 0.4rem;
+  color: var(--ifm-color-primary-darkest);
+  background: rgba(139, 0, 41, 0.06);
+  border: 1px solid rgba(139, 0, 41, 0.14);
+  border-radius: 4px;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+/* ---------- 코드 블록 ---------- */
+.theme-code-block {
+  margin-bottom: 1.5rem;
+  box-shadow: none;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.theme-code-block pre {
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* 코드 블록 제목(```bash title="...") 막대 */
+div[class^='codeBlockTitle'] {
+  font-weight: 600;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* ---------- Admonition ---------- */
+.theme-admonition {
+  margin: 1.5rem 0;
+  line-height: 1.75;
+}
+
+.theme-admonition p:last-child,
+.theme-admonition ul:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 본문 폭 ---------- */
+.theme-doc-markdown {
+  max-width: 54rem;
+}
+
+/* ---------- 목차 · 사이드바 ---------- */
+.table-of-contents {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.menu__link {
+  font-size: 0.92rem;
+}
+
+/* ---------- 링크 ---------- */
+.markdown a {
+  font-weight: 500;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }

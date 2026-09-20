@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.col {
+  margin-bottom: 1.5rem;
+}
+
 .card {
   display: block;
   height: 100%;

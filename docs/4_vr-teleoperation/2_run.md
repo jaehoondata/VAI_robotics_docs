@@ -26,23 +26,26 @@ bringup → outbound → inbound → 노트북 실행 → 왼쪽 X (녹화 시�
 
 맥북 터미널에서 Orin 컨테이너로 들어갑니다. **터미널마다** 아래를 반복합니다.
 
-```bash
+```bash title="터미널 1 · 2 · 3 공통 — Orin 접속"
 ssh robotis@ffw-SNPR48A1115.local
 docker exec -it ai_worker bash
 ```
 
 컨테이너 안에서 터미널 하나에 하나씩 실행합니다.
 
-```bash
-# 터미널 1 — bringup
+```bash title="터미널 1 — bringup"
 worker_bringup
+```
 
-# 터미널 2 — 로봇 → 맥북 (관절 + 카메라 3대)
+```bash title="터미널 2 — 로봇 → 맥북 (관절 + 카메라 3대)"
 SG2_FIXED_QUEST=1 worker_outbound_meta
+```
 
-# 터미널 3 — 맥북 → 로봇 (명령). <맥북 IP> 는 ② 노트북 설정 셀이 알려줌
+```bash title="터미널 3 — 맥북 → 로봇 (명령)"
 SG2_FIXED_QUEST=1 SG2_ZMQ_SUB_IP=<맥북 IP> worker_inbound
 ```
+
+`<맥북 IP>` 는 아래 ②의 노트북 설정 셀이 알려줍니다.
 
 - `worker_bringup_teleop` 은 켤 때 **헤드만** `[0, 0]` 으로 움직이고 팔·리프트·베이스는 그대로 둡니다. (헤드가 범위를 벗어나 있으면 VR 쪽에서 로봇 상태를 거부하기 때문)
   - 헤드도 그대로: `worker_bringup_teleop init_head:=false`

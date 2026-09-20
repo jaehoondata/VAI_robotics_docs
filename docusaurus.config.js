@@ -8,9 +8,9 @@ const GITHUB_REPO = 'https://github.com/jaehoondata/VAI_worker_docs';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'KU Vision & AI Lab',
+  title: 'Robotis docs',
   tagline: 'Robotics team docs',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   future: {
     v4: true,
@@ -71,18 +71,27 @@ const config = {
     ],
   ],
 
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',
+      type: 'text/css',
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.png',
       colorMode: {
-        respectPrefersColorScheme: true,
+        defaultMode: 'light',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'VAI Worker Docs',
+        title: 'Robotis docs',
         logo: {
-          alt: 'VAI Worker Docs',
-          src: 'img/logo.svg',
+          alt: 'Robotis docs',
+          src: 'img/logo.png',
         },
         items: [
           {
@@ -91,7 +100,6 @@ const config = {
             position: 'left',
             label: '문서',
           },
-          {to: '/blog', label: '업데이트', position: 'left'},
           {
             href: GITHUB_REPO,
             label: 'GitHub',

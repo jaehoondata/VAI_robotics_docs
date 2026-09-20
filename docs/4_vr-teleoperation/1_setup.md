@@ -36,14 +36,14 @@ Quest 3 브라우저 ──(WebXR, wss:8443)──▶ 맥북 노트북 ──(ZM
 
 `~/.ssh/config` 에 등록해 둡니다.
 
-```
+```text title="~/.ssh/config"
 Host ffw-SNPR48A1115.local
     HostName ffw-SNPR48A1115.local
     User robotis
     ForwardX11 yes
 ```
 
-```bash
+```bash title="맥북 터미널"
 ssh robotis@ffw-SNPR48A1115.local     # System password: root
 docker exec -it ai_worker bash
 ```
@@ -64,7 +64,7 @@ git clone https://github.com/jaehoondata/VAI_AIWORKER
 
 conda 가상환경을 만들고 패키지를 설치합니다.
 
-```bash
+```bash title="conda 가상환경 생성"
 cd ri_motion_v5_package
 conda create -n ri_motion_v5_env python=3.10 pip
 conda activate ri_motion_v5_env
@@ -74,7 +74,7 @@ pip install -e .
 
 Jupyter 커널을 등록합니다. (커널 표시 이름도 `ri_motion_v5_env`)
 
-```bash
+```bash title="Jupyter 커널 등록"
 /opt/homebrew/Caskroom/miniforge/base/envs/ri_motion_v5_env/bin/python3 \
   -m ipykernel install --user --name ri_motion_v5_env --display-name ri_motion_v5_env
 ```
@@ -91,7 +91,7 @@ mamba install -n ri_motion_v5_env -c conda-forge scipy
 
 ### 맥북 — `VAI_AIWORKER/VR_teleoperation/`
 
-```
+```text title="VAI_AIWORKER/VR_teleoperation/"
 real_notebook/
   real_vr_teleop_record.ipynb   ← 실사용: 텔레옵 + 녹화 + 컨트롤러 버튼
   real_vr_teleop.ipynb          ← 원본 텔레옵 (녹화 없음)
@@ -110,7 +110,7 @@ calibration/                    ← 개인 보정값 (v1)
 
 ### Orin — `~/ai_worker/` (컨테이너 `/root/ros2_ws/src/ai_worker/`)
 
-```
+```text title="Orin ~/ai_worker/"
 zmq/outbound.py              ← 로봇 → 맥북 관절 (:5560), --meta 로 카메라도
 zmq/camera_outbound.py       ← 카메라 3대 (:5570 head / :5571 wrist_left / :5572 wrist_right)
 zmq/inbound.py               ← 맥북 → 로봇 명령 (:5561)
