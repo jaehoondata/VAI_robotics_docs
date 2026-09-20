@@ -11,7 +11,7 @@ title: 로봇 종료
 
 ## 종료 순서
 
-```
+```text title="종료 순서"
 자세 정리 → worker_shutdown → (텔레옵 노드) inbound → outbound → bringup 순 Ctrl+C → 전원 OFF
 ```
 

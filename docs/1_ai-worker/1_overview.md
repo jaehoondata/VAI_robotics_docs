@@ -66,18 +66,52 @@ AI Worker는 조작하는 쪽(leader)과 실제로 움직이는 쪽(follower)이
 
 코드나 토픽에서 관절을 지정할 때 쓰는 이름입니다.
 
+#### 오른팔
+
 | ID | 관절 | Technical Name | 범위 |
 | --- | --- | --- | --- |
-| 1~7 | 오른팔 Shoulder Pitch/Roll/Yaw, Elbow, Wrist Yaw/Pitch/Roll | `arm_r_joint1` ~ `arm_r_joint7` | -180°~180° 등 관절별 상이 |
-| 8 | 오른쪽 그리퍼 | `gripper_r_joint1` | 0 ~ 107.6 mm |
-| 31~37 | 왼팔 (오른팔과 동일 구성) | `arm_l_joint1` ~ `arm_l_joint7` | 좌우 대칭 |
-| 38 | 왼쪽 그리퍼 | `gripper_l_joint1` | 0 ~ 107.6 mm |
-| 61 | 헤드 Pitch | `head_joint1` | -50° ~ 30° |
-| 62 | 헤드 Yaw | `head_joint2` | -20° ~ 20° |
-| 81 | 리프트 | `lift_joint` | 0 ~ 500 mm |
+| 1 | Shoulder Pitch | `arm_r_joint1` | -180° ~ 180° |
+| 2 | Shoulder Roll | `arm_r_joint2` | -190° ~ 10° |
+| 3 | Shoulder Yaw | `arm_r_joint3` | -180° ~ 180° |
+| 4 | Elbow | `arm_r_joint4` | -170° ~ 65° |
+| 5 | Wrist Yaw | `arm_r_joint5` | -180° ~ 180° |
+| 6 | Wrist Pitch | `arm_r_joint6` | -105° ~ 105° |
+| 7 | Wrist Roll | `arm_r_joint7` | -120° ~ 90° |
+| 8 | Gripper | `gripper_r_joint1` | 0 ~ 107.6 mm |
 
-모바일 베이스는 삼각 배치된 바퀴 3개가 각각 조향/구동을 독립 제어합니다.
-(`right_wheel_steer`, `left_wheel_steer`, `rear_wheel_steer`: -90°~90° / `*_wheel_drive`: -360°~360°)
+#### 왼팔
+
+| ID | 관절 | Technical Name | 범위 |
+| --- | --- | --- | --- |
+| 31 | Shoulder Pitch | `arm_l_joint1` | -180° ~ 180° |
+| 32 | Shoulder Roll | `arm_l_joint2` | -10° ~ 190° |
+| 33 | Shoulder Yaw | `arm_l_joint3` | -180° ~ 180° |
+| 34 | Elbow | `arm_l_joint4` | -170° ~ 65° |
+| 35 | Wrist Yaw | `arm_l_joint5` | -180° ~ 180° |
+| 36 | Wrist Pitch | `arm_l_joint6` | -105° ~ 105° |
+| 37 | Wrist Roll | `arm_l_joint7` | -90° ~ 120° |
+| 38 | Gripper | `gripper_l_joint1` | 0 ~ 107.6 mm |
+
+#### 헤드 · 리프트
+
+| ID | 관절 | Technical Name | 범위 |
+| --- | --- | --- | --- |
+| 61 | Head Pitch | `head_joint1` | -50° ~ 30° |
+| 62 | Head Yaw | `head_joint2` | -20° ~ 20° |
+| 81 | Lift | `lift_joint` | 0 ~ 500 mm |
+
+#### 모바일 베이스 (Swerve Drive)
+
+삼각 배치된 바퀴 3개가 각각 조향과 구동을 독립 제어합니다.
+
+| 부위 | Technical Name | 범위 |
+| --- | --- | --- |
+| 오른쪽 바퀴 조향 | `right_wheel_steer` | -90° ~ 90° |
+| 왼쪽 바퀴 조향 | `left_wheel_steer` | -90° ~ 90° |
+| 뒤쪽 바퀴 조향 | `rear_wheel_steer` | -90° ~ 90° |
+| 오른쪽 바퀴 구동 | `right_wheel_drive` | -360° ~ 360° |
+| 왼쪽 바퀴 구동 | `left_wheel_drive` | -360° ~ 360° |
+| 뒤쪽 바퀴 구동 | `rear_wheel_drive` | -360° ~ 360° |
 
 :::tip
 관절별 정확한 가동 범위와 도면은 [ROBOTIS Hardware Specification](https://docs.robotis.com/docs/systems/aiworker/specifications/hardware)에서 확인할 수 있습니다.
@@ -135,7 +169,7 @@ AI Worker는 조작하는 쪽(leader)과 실제로 움직이는 쪽(follower)이
 
 텔레오퍼레이션이든 AI 정책이든, 명령은 동일한 경로를 거쳐 액추에이터까지 전달됩니다.
 
-```
+```text title="모션 실행 파이프라인"
 입력 소스 (Leader 텔레오퍼레이션 / VR / AI 정책)
       ↓
 ROS 2 JointTrajectory 토픽

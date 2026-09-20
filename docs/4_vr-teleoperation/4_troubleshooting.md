@@ -36,6 +36,8 @@ title: 문제 해결
 | 화면에 `!! IK FAILED` | 손이 로봇이 닿을 수 없는 곳. 손을 되돌리고 grip을 놓았다 다시 잡기 |
 | B reset pose가 "중단 … 팔을 조금 벌린 뒤 다시 B" | 경로 충돌 검사에서 막힘. VR로 팔 사이를 벌린 뒤 다시 B |
 | 로봇이 두 곳에서 명령 받는 듯 흔들림 | `ros2 launch robotis_vuer ...`(ROBOTIS VR)이나 LG2 리더가 켜져 있음. 끄고 사용 |
+| B reset pose가 30°/s가 아니라 느림 | 로봇의 `fixed_quest_protocol.py` 가 구버전. [worker 배포](./1_setup.md) 절차로 `package/worker/` 쪽을 복사하고 inbound·outbound 재시작 |
+| 키보드로 베이스가 안 움직임 | `SG2 Base` 창에 포커스가 없거나 `Base command` 가 `OFF`. 단독 노트북이라면 inbound를 `SG2_FIXED_QUEST=1` 없이 실행했는지 확인 |
 | 관절에 힘이 없음 | torque-off 상태. Remote E-STOP의 **A 버튼** |
 
 ## 카메라 · 녹화
@@ -53,6 +55,7 @@ title: 문제 해결
 | 노트북 첫 셀 `ImportError ... _spropack ... __thread_bss` | pip scipy가 macOS와 맞지 않음. `mamba install -n ri_motion_v5_env -c conda-forge scipy` |
 | `command not found` (worker_*) | `source ~/.bashrc` 후 다시 실행 |
 | 커널 목록에 `ri_motion_v5_env` 가 없음 | ipykernel 등록이 안 됨. [환경 구축](./1_setup.md)의 커널 등록 명령 재실행 |
+| `RuntimeError: An earlier project module is already loaded` | 다른 프로젝트 모듈이 올라온 커널을 재사용함. 커널 Restart 후 첫 셀부터 다시 실행 |
 
 ## 관련 문서
 

@@ -19,7 +19,7 @@ title: 녹화와 데이터
 
 창 제목에 상태와 수신 속도가 표시됩니다.
 
-```
+```text title="SG2 Record 창 제목"
 ● REC episode_003 12.3s | Hz joint 30 action 30 head 17 ...
 ```
 
@@ -28,7 +28,7 @@ title: 녹화와 데이터
 
 ## 저장 위치
 
-```
+```text title="에피소드 저장 경로"
 ~/aiworker_data/<TASK_NAME>/episode_NNN/
 ```
 
