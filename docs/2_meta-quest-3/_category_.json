@@ -1,0 +1,8 @@
+{
+  "label": "Meta Quest 3",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "VR teleoperation에 사용하는 Meta Quest 3의 기능과 major error 해결법입니다."
+  }
+}

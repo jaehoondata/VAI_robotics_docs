@@ -1,0 +1,8 @@
+{
+  "label": "Interactive Marker",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "RViz 인터랙티브 마커와 Joint/EEF 컨트롤러로 FFW-SG2를 조작하는 방법입니다."
+  }
+}

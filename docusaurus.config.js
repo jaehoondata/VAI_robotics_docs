@@ -8,8 +8,8 @@ const GITHUB_REPO = 'https://github.com/jaehoondata/VAI_worker_docs';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'VAI Worker Docs',
-  tagline: 'VAI 팀 내부 문서',
+  title: 'KU Vision & AI Lab',
+  tagline: 'Robotics team docs',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -34,11 +34,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko', 'en'],
-    localeConfigs: {
-      ko: {label: '한국어', htmlLang: 'ko-KR'},
-      en: {label: 'English', htmlLang: 'en-US'},
-    },
+    locales: ['ko'],
   },
 
   presets: [
@@ -50,8 +46,6 @@ const config = {
           sidebarPath: './sidebars.js',
           // 각 페이지 하단 "이 페이지 편집하기" 링크가 이 주소로 연결됩니다.
           editUrl: `${GITHUB_REPO}/tree/main/`,
-          // 번역된 페이지는 해당 언어 파일로 연결
-          editLocalizedFiles: true,
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
@@ -66,7 +60,6 @@ const config = {
             xslt: true,
           },
           editUrl: `${GITHUB_REPO}/tree/main/`,
-          editLocalizedFiles: true,
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -99,10 +92,6 @@ const config = {
             label: '문서',
           },
           {to: '/blog', label: '업데이트', position: 'left'},
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
           {
             href: GITHUB_REPO,
             label: 'GitHub',

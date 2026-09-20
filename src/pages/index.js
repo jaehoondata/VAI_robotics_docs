@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
@@ -16,12 +15,10 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">
-          <Translate id="homepage.tagline">VAI 팀 내부 문서</Translate>
-        </p>
+        <p className="hero__subtitle">Robotics team docs</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
-            <Translate id="homepage.cta">문서 보기</Translate>
+            Introduction
           </Link>
         </div>
       </div>

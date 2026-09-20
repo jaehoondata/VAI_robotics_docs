@@ -54,12 +54,6 @@ title: 사이드바에 표시될 제목
 
 사이드바는 폴더 구조에서 자동 생성되므로 별도 등록이 필요 없습니다. 순서는 `sidebar_position` 숫자로 조정하고, 폴더 자체의 이름과 순서는 그 폴더의 `_category_.json` 에서 바꿉니다.
 
-## 영어 문서
-
-기본 언어는 한국어입니다. 영어 번역이 필요한 문서는 같은 경로로 `i18n/en/docusaurus-plugin-content-docs/current/` 아래에 만듭니다. 예를 들어 `docs/ai-worker/setup.md` 의 영어판은 `i18n/en/docusaurus-plugin-content-docs/current/ai-worker/setup.md` 입니다.
-
-번역 파일이 없는 문서는 영어 사이트에서도 한국어 원문이 그대로 보입니다. 따라서 급한 문서부터 하나씩 번역하면 됩니다.
-
 ## 작성할 때 지켜주면 좋은 것
 
 - 제목은 명사형으로 짧게 (`개발 환경 설정` — `개발 환경을 설정하는 방법` 아님)
