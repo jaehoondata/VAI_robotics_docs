@@ -5,8 +5,14 @@ title: 실행
 
 # VR Teleoperation 실행
 
+:::info[시작 전 확인]
+- [ ] [환경 구축](../3_pipeline/1_setup.md) 완료 — conda 환경 `ri_motion_v5_env`, 커널 등록
+- [ ] 로봇 worker가 최신 버전인가 — inbound 로그에 `arm 120 deg/s, gripper 120 deg/s, home 30.0 deg/s`
+- [ ] Quest가 Wi-Fi `AIWORKER1115` 에 연결되어 있고, 맥북도 192.168.6.x 네트워크에 있음
+:::
+
 :::note
-매 세션 반복하는 절차입니다. 최초 1회 준비는 [환경 구축](./1_setup.md)을 먼저 끝내세요.
+매 세션 반복하는 절차입니다. 최초 1회 준비는 [Pipeline](../3_pipeline/1_setup.md)과 [개요](./1_overview.md)를 먼저 끝내세요.
 :::
 
 ## 한 줄 순서
@@ -226,10 +232,10 @@ SG2_ZMQ_SUB_IP=<맥북 IP> worker_inbound
 3. Orin 터미널 3개: 각각 `Ctrl+C` (**inbound → outbound → bringup** 순)
 4. 팔을 접어 두려면 Orin에서 `worker_shutdown`
 
-전원까지 내리는 절차는 [AI WORKER 로봇 종료](../1_ai-worker/3_exit.md)를 참고하세요.
+전원까지 내리는 절차는 [AI WORKER 로봇 종료](../3_pipeline/3_robot-exit.md)를 참고하세요.
 
 ## 관련 문서
 
-- [환경 구축](./1_setup.md)
+- [개요](./1_overview.md)
 - [녹화와 데이터](./3_recording.md)
 - [문제 해결](./4_troubleshooting.md)

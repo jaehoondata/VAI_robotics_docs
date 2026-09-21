@@ -1,0 +1,8 @@
+{
+  "label": "Pipeline",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Interactive Marker와 VR Teleoperation에 공통으로 필요한 환경 구축과 로봇 구동·종료 절차입니다."
+  }
+}

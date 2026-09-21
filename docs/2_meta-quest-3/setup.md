@@ -96,4 +96,4 @@ Quest 브라우저에 텔레옵 탭이 여러 개 열려 있으면 입력이 들
 ## 관련 문서
 
 - [Meta Quest 3 개요](./overview.md)
-- [VR Teleoperation 환경 구축](../4_vr-teleoperation/1_setup.md)
+- [VR Teleoperation 환경 구축](../5_vr-teleoperation/1_overview.md)

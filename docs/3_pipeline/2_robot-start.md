@@ -3,12 +3,15 @@ sidebar_position: 2
 title: 로봇 구동
 ---
 
-# AI WORKER 구동
+# 로봇 구동
 
-:::note
-FFW-SG2의 전원을 넣고 ROS 2 노드가 올라오는 **bringup**까지의 절차입니다.
-텔레오퍼레이션 파이프라인 실행은 [VR Teleoperation](../4_vr-teleoperation/1_setup.md), 인터랙티브 마커 조작은 [Interactive Marker](../3_Interactive-marker/interactive-marker.md)를 참고하세요.
+:::info[시작 전 확인]
+- [ ] [환경 구축](./1_setup.md) 완료 — conda 환경 `ri_motion_v5_env`, 저장소 clone, SSH 설정
+- [ ] 로봇 작업 반경에 사람·장애물 없음, **E-stop 담당자 1명 대기**
+- [ ] (VR Teleoperation을 쓸 경우) 로봇 worker가 최신 버전인가 — inbound 로그에 `home 30.0 deg/s`
 :::
+
+전원을 넣고 ROS 2 노드가 올라오는 **bringup**까지의 절차입니다. 여기까지 끝나면 [Interactive Marker](../4_interactive-marker/interactive-marker.md) 또는 [VR Teleoperation](../5_vr-teleoperation/2_run.md) 으로 넘어갑니다.
 
 ## 1. 전원 인가
 
@@ -41,33 +44,18 @@ AI WORKER는 전원을 켠 직후 **torque-off** 상태입니다. DYNAMIXEL과 �
 - **E-stop 대기**: 구동 시점부터 **비상 정지 버튼을 누를 사람 1명을 반드시 대기**시킵니다.
 :::
 
-## 3. 로봇 PC(Orin) 접속
-
-우리 랩 장비 기준 호스트명은 `ffw-SNPR48A1115.local`, 계정은 `robotis` 입니다.
+## 3. Orin 접속
 
 ```bash title="맥북 터미널"
 ssh robotis@ffw-SNPR48A1115.local     # System password: root
 docker exec -it ai_worker bash
 ```
 
-`~/.ssh/config` 에 등록해 두면 편합니다.
-
-```text title="~/.ssh/config"
-Host ffw-SNPR48A1115.local
-    HostName ffw-SNPR48A1115.local
-    User robotis
-    ForwardX11 yes
-```
-
-비밀번호 없이 접속하려면(선택):
-
-```bash
-ssh-copy-id robotis@ffw-SNPR48A1115.local
-```
+SSH 설정은 [환경 구축](./1_setup.md)에서 미리 해 둡니다.
 
 ## 4. Bringup
 
-컨테이너 안에서 실행합니다. `worker_*` 명령은 `scripts/worker_aliases.sh` 에 정의된 단축 명령입니다.
+컨테이너 안에서 실행합니다. `worker_*` 는 `scripts/worker_aliases.sh` 에 정의된 단축 명령입니다.
 
 ```bash title="Orin 컨테이너"
 worker_bringup
@@ -76,18 +64,29 @@ worker_bringup
 
 `command not found` 가 뜨면 `source ~/.bashrc` 후 다시 실행합니다.
 
-### bringup 계열 명령
+### `worker_*` 명령 정리
 
 | 명령 | 설명 |
 | --- | --- |
 | `worker_bringup` | 전체 bringup. 켤 때 초기 자세로 이동 |
-| `worker_bringup_teleop` | follower 모터·통신·카메라만. 켤 때 **헤드만** `[0, 0]` 으로 이동하고 팔·리프트·베이스는 그대로 |
-| `worker_shutdown` | 팔 접기 (종료 시 사용) |
+| `worker_bringup_teleop` | follower 모터·통신·카메라만. 켤 때 **헤드만** `[0, 0]` 으로 이동 |
+| `worker_outbound` / `worker_outbound_meta` | 관절 전송 / 관절 + 카메라 전송 |
+| `worker_inbound` | 명령 수신 |
+| `worker_shutdown` | 팔 접기 (inbound 를 먼저 끔) |
 
+:::warning[어느 bringup을 쓸지는 파이프라인마다 다릅니다]
 `worker_bringup_teleop` 이 헤드를 움직이는 이유는, 헤드가 가동 범위를 벗어나 있으면 VR 쪽에서 로봇 상태를 거부하기 때문입니다.
 
 - 헤드도 그대로 두기: `worker_bringup_teleop init_head:=false`
 - 전부 초기 자세로: `worker_bringup_teleop init_position:=true`
+
+`worker_outbound` · `worker_inbound` 는 **환경 변수가 파이프라인마다 달라서** 각 문서에서 안내합니다. 특히 `SG2_FIXED_QUEST` 값을 틀리면 로봇이 명령을 받지 못합니다.
+:::
+
+| 파이프라인 | bringup | outbound · inbound |
+| --- | --- | --- |
+| [Interactive Marker](../4_interactive-marker/interactive-marker.md) | `worker_bringup` | `SG2_FIXED_QUEST` **없이** |
+| [VR Teleoperation](../5_vr-teleoperation/2_run.md) | `worker_bringup_teleop` | `SG2_FIXED_QUEST=1` |
 
 ### ROBOTIS 공식 launch 옵션
 
@@ -110,7 +109,19 @@ ros2 launch ffw_bringup ffw_sg2_ai.launch.py   # 단축: ffw_sg2_ai
 LG2는 실행 후 **양손 트리거를 2초 이상** 눌러야 follower가 움직이기 시작합니다. 처음에는 천천히 leader 자세를 따라가다가 가까워지면 빨라집니다.
 :::
 
-## 5. 동작 확인
+## 5. Orin 파일 구성
+
+```text title="Orin ~/ai_worker/ (컨테이너 /root/ros2_ws/src/ai_worker/)"
+zmq/outbound.py              ← 로봇 → 맥북 관절 (:5560), --meta 로 카메라도
+zmq/camera_outbound.py       ← 카메라 3대 (:5570 head / :5571 wrist_left / :5572 wrist_right)
+zmq/inbound.py               ← 맥북 → 로봇 명령 (:5561)
+zmq/fixed_quest_protocol.py  ← 명령 안전 규칙 (SG2_FIXED_QUEST=1 일 때)
+zmq/_old/                    ← 수정 전 백업
+scripts/worker_aliases.sh    ← worker_* 명령 정의
+ffw_bringup/launch/ffw_sg2_teleop.launch.py  ← worker_bringup_teleop
+```
+
+## 6. 동작 확인
 
 | 확인 항목 | 명령 / 방법 |
 | --- | --- |
@@ -119,7 +130,7 @@ LG2는 실행 후 **양손 트리거를 2초 이상** 눌러야 follower가 움�
 | 로봇 모델·TF가 정상인가 | RViz2 |
 | 카메라 3대가 붙었는가 | `ros2 topic list` 에서 head / wrist_left / wrist_right |
 
-## 6. 자주 겪는 문제
+## 자주 겪는 문제
 
 | 증상 | 원인 / 해결 |
 | --- | --- |
@@ -131,6 +142,6 @@ LG2는 실행 후 **양손 트리거를 2초 이상** 눌러야 follower가 움�
 
 ## 관련 문서
 
-- [개요](./1_overview.md)
-- [로봇 종료](./3_exit.md)
-- [VR Teleoperation 환경 구축](../4_vr-teleoperation/1_setup.md)
+- [환경 구축](./1_setup.md)
+- [로봇 종료](./3_robot-exit.md)
+- [AI WORKER 개요](../1_ai-worker/1_overview.md)

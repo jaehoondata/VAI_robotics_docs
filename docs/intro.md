@@ -12,10 +12,23 @@ title: Intro
 
 | Section | Contents |
 | --- | --- |
-| **AI WORKER** | ROBOTIS가 제공하는 FFW-SG2의 하드웨어·소프트웨어 사양과 로봇 구동·종료 절차를 다룹니다. |
-| **Meta Quest 3** | VR teleoperation에 사용하는 Meta Quest 3의 장비 특징과 기본 사용법을 다룹니다. |
-| **Interactive Marker** | MuJoCo 뷰어의 마커를 끌어 FFW-SG2를 조작하는 Joint / EEF 컨트롤러 사용법을 다룹니다. |
-| **VR Teleoperation** | 팀에서 개발한 파이프라인으로 FFW-SG2를 face-to-face teleoperation하고 데모를 녹화하는 방법을 다룹니다. |
+| [**AI WORKER**](./1_ai-worker/1_overview.md) | ROBOTIS가 제공하는 FFW-SG2의 하드웨어·소프트웨어 사양을 다룹니다. |
+| [**Meta Quest 3**](./2_meta-quest-3/overview.md) | VR teleoperation에 사용하는 Meta Quest 3의 장비 특징과 기본 사용법을 다룹니다. |
+| [**Pipeline**](./3_pipeline/1_setup.md) | 두 조작 방식에 공통으로 필요한 환경 구축과 로봇 구동·종료를 다룹니다. |
+| [**Interactive Marker**](./4_interactive-marker/interactive-marker.md) | MuJoCo 뷰어의 마커를 끌어 FFW-SG2를 조작하는 Joint / EEF 컨트롤러 사용법을 다룹니다. |
+| [**VR Teleoperation**](./5_vr-teleoperation/1_overview.md) | 팀에서 개발한 파이프라인으로 FFW-SG2를 face-to-face teleoperation하고 데모를 녹화하는 방법을 다룹니다. |
+
+## 처음 오셨다면
+
+아래 순서로 따라가면 로봇을 움직일 수 있습니다.
+
+1. [AI WORKER 개요](./1_ai-worker/1_overview.md) — 장비가 어떻게 생겼는지 훑어봅니다.
+2. [Pipeline — 환경 구축](./3_pipeline/1_setup.md) — SSH, conda 환경, Jupyter 커널을 준비합니다. **처음 한 번만** 합니다.
+3. [Pipeline — 로봇 구동](./3_pipeline/2_robot-start.md) — 전원을 넣고 bringup까지 올립니다.
+4. 조작 방식을 고릅니다.
+   - [Interactive Marker](./4_interactive-marker/interactive-marker.md) — 마우스로 마커를 끌어 정밀하게 한 번씩
+   - [VR Teleoperation](./5_vr-teleoperation/1_overview.md) — Quest 컨트롤러로 연속 조작하고 데모 녹화
+5. [Pipeline — 로봇 종료](./3_pipeline/3_robot-exit.md) — 팔을 접고 전원을 내립니다.
 
 ## Editing
 

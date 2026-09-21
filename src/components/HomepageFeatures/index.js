@@ -15,12 +15,17 @@ const FeatureList = [
     description: 'VR teleoperation에 사용하는 Meta Quest 3의 장비 특징과 기본 사용법입니다.',
   },
   {
-    to: '/docs/Interactive-marker/interactive-marker',
+    to: '/docs/pipeline/setup',
+    title: 'Pipeline',
+    description: '두 조작 방식에 공통으로 필요한 환경 구축과 로봇 구동·종료 절차입니다.',
+  },
+  {
+    to: '/docs/interactive-marker/interactive-marker',
     title: 'Interactive Marker',
     description: 'MuJoCo 뷰어의 마커를 끌어 FFW-SG2를 조작하는 Joint / EEF 컨트롤러 사용법입니다.',
   },
   {
-    to: '/docs/vr-teleoperation/setup',
+    to: '/docs/vr-teleoperation/overview',
     title: 'VR Teleoperation',
     description: '팀 파이프라인으로 FFW-SG2를 face-to-face teleoperation하고 데모를 녹화합니다.',
   },
@@ -28,7 +33,7 @@ const FeatureList = [
 
 function Feature({to, title, description}) {
   return (
-    <div className={clsx('col col--3', styles.col)}>
+    <div className={clsx('col col--4', styles.col)}>
       <Link to={to} className={styles.card}>
         <Heading as="h3" className={styles.cardTitle}>
           {title}

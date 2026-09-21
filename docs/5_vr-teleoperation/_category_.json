@@ -1,6 +1,6 @@
 {
   "label": "VR Teleoperation",
-  "position": 5,
+  "position": 6,
   "link": {
     "type": "generated-index",
     "description": "Meta Quest 3 컨트롤러로 FFW-SG2를 face-to-face teleoperation하고 데모 데이터를 녹화하는 파이프라인입니다."

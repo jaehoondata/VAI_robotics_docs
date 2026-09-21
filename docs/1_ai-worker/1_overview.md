@@ -209,9 +209,10 @@ DYNAMIXEL 액추에이터
 
 ## 관련 문서
 
-- [로봇 구동](./2_start.md) — 전원 인가부터 bringup까지
-- [로봇 종료](./3_exit.md) — 팔 접기, 노드 종료, 전원 OFF
-- [Interactive Marker로 조작하기](../3_Interactive-marker/interactive-marker.md)
-- [VR Teleoperation](../4_vr-teleoperation/1_setup.md)
+- [Pipeline — 환경 구축](../3_pipeline/1_setup.md) — SSH, conda·커널
+- [Pipeline — 로봇 구동](../3_pipeline/2_robot-start.md) — 전원 인가부터 bringup까지
+- [Pipeline — 로봇 종료](../3_pipeline/3_robot-exit.md) — 팔 접기, 노드 종료, 전원 OFF
+- [Interactive Marker로 조작하기](../4_interactive-marker/interactive-marker.md)
+- [VR Teleoperation](../5_vr-teleoperation/1_overview.md)
 - [Meta Quest 3 개요](../2_meta-quest-3/overview.md)
 - [ROBOTIS AI Worker 공식 문서](https://docs.robotis.com/docs/systems/aiworker/introduction)

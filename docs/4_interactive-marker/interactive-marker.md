@@ -8,19 +8,14 @@ title: Interactive Marker로 조작하기
 :::note
 VR 없이 **마우스로 마커를 끌어서** FFW-SG2의 팔을 움직이는 방법입니다.
 동작 확인, 자세 잡기, IK 테스트처럼 정밀하게 한 번씩 움직여 볼 때 사용합니다.
-연속 조작과 데이터 수집은 [VR Teleoperation](../4_vr-teleoperation/1_setup.md)을 쓰세요.
+연속 조작과 데이터 수집은 [VR Teleoperation](../5_vr-teleoperation/1_overview.md)을 쓰세요.
 :::
 
-## 사전 준비
-
-- 로봇 전원 ON, Remote E-STOP **A 버튼**으로 토크 ON ([로봇 구동](../1_ai-worker/2_start.md) 참고)
-- 맥북 conda 환경 `ri_motion_v5_env`, 저장소 `VAI_AIWORKER` ([VR Teleoperation 환경 구축](../4_vr-teleoperation/1_setup.md)과 동일)
-- Orin 컨테이너 접속
-
-```bash title="맥북 터미널 — Orin 접속"
-ssh robotis@ffw-SNPR48A1115.local
-docker exec -it ai_worker bash
-```
+:::info[시작 전 확인]
+- [ ] [환경 구축](../3_pipeline/1_setup.md) 완료 — conda 환경 `ri_motion_v5_env` + **`ri_motion_v5_package` 설치**
+- [ ] [로봇 구동](../3_pipeline/2_robot-start.md) 완료 — 전원·E-STOP 해제 후 `worker_bringup`
+- [ ] Orin 컨테이너 접속 상태 (`docker exec -it ai_worker bash`)
+:::
 
 :::danger[실제 로봇 구동 시 반드시 확인]
 - **파괴력 주의**: 로봇의 힘이 매우 강합니다. (로봇 워크스테이션도 구겨질 수 있습니다)
@@ -137,5 +132,5 @@ worker_shutdown
 
 ## 관련 문서
 
-- [AI WORKER 로봇 구동](../1_ai-worker/2_start.md)
-- [VR Teleoperation 환경 구축](../4_vr-teleoperation/1_setup.md)
+- [AI WORKER 로봇 구동](../3_pipeline/2_robot-start.md)
+- [VR Teleoperation 환경 구축](../5_vr-teleoperation/1_overview.md)

@@ -3,22 +3,26 @@ sidebar_position: 3
 title: 로봇 종료
 ---
 
-# AI WORKER 종료
+# 로봇 종료
 
-:::note
-로봇을 안전하게 정리하고 전원을 내리는 절차입니다. 텔레오퍼레이션 세션 자체를 끝내는 방법은 [VR Teleoperation 실행](../4_vr-teleoperation/2_run.md)의 종료 항목을 참고하세요.
+:::info[시작 전 확인]
+- [ ] 텔레옵 세션을 먼저 끝냈는가 — [VR 세션 종료](../5_vr-teleoperation/2_run.md) 또는 노트북 `Robot` `OFF`
+- [ ] 팔이 물체를 쥐고 있지 않은가
+- [ ] 로봇 주변에 사람이 없는가
 :::
+
+로봇을 안전하게 정리하고 전원을 내리는 절차입니다.
 
 ## 종료 순서
 
 ```text title="종료 순서"
-자세 정리 → worker_shutdown → (텔레옵 노드) inbound → outbound → bringup 순 Ctrl+C → 전원 OFF
+자세 정리 → worker_shutdown → inbound → outbound → bringup 순 Ctrl+C → 전원 OFF
 ```
 
 1. **자세 정리** — 팔이 펼쳐진 상태라면 먼저 안전한 자세로 모읍니다. VR 세션 중이라면 오른쪽 컨트롤러 **B 버튼 1초**로 초기 자세로 돌립니다.
 2. **팔 접기** — Orin 컨테이너에서 `worker_shutdown` 을 실행합니다.
 
-   ```bash
+   ```bash title="Orin 컨테이너"
    worker_shutdown
    ```
 
@@ -37,7 +41,7 @@ title: 로봇 종료
 작동 중 이상이 생기면 Remote E-STOP의 **빨간 버섯 버튼**을 누릅니다.
 
 - 다시 쓰려면 버튼을 시계 방향으로 돌려 풀고 **A 버튼**을 눌러 토크를 켭니다.
-- E-STOP 후에는 bringup부터 다시 시작하는 편이 안전합니다.
+- E-STOP 후에는 [bringup](./2_robot-start.md)부터 다시 시작하는 편이 안전합니다.
 
 ## 종료 체크리스트
 
@@ -57,5 +61,5 @@ title: 로봇 종료
 
 ## 관련 문서
 
-- [개요](./1_overview.md)
-- [로봇 구동](./2_start.md)
+- [로봇 구동](./2_robot-start.md)
+- [환경 구축](./1_setup.md)

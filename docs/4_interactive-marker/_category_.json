@@ -1,6 +1,6 @@
 {
   "label": "Interactive Marker",
-  "position": 4,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "MuJoCo 뷰어의 마커를 끌어 FFW-SG2를 조작하는 Joint / EEF 컨트롤러 사용법입니다."
