@@ -14,7 +14,7 @@ title: Intro
 | --- | --- |
 | **AI WORKER** | ROBOTIS가 제공하는 FFW-SG2의 하드웨어·소프트웨어 사양과 로봇 구동·종료 절차를 다룹니다. |
 | **Meta Quest 3** | VR teleoperation에 사용하는 Meta Quest 3의 장비 특징과 기본 사용법을 다룹니다. |
-| **Interactive Marker** | RViz 인터랙티브 마커와 Joint/EEF 컨트롤러로 FFW-SG2를 조작하는 방법을 다룹니다. |
+| **Interactive Marker** | MuJoCo 뷰어의 마커를 끌어 FFW-SG2를 조작하는 Joint / EEF 컨트롤러 사용법을 다룹니다. |
 | **VR Teleoperation** | 팀에서 개발한 파이프라인으로 FFW-SG2를 face-to-face teleoperation하고 데모를 녹화하는 방법을 다룹니다. |
 
 ## Editing

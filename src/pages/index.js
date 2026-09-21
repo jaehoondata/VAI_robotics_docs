@@ -8,12 +8,11 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          {'V\u0026AI Lab'}
         </Heading>
         <p className="hero__subtitle">Robotics team docs</p>
         <div className={styles.buttons}>

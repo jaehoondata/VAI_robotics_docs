@@ -17,7 +17,7 @@ const FeatureList = [
   {
     to: '/docs/Interactive-marker/interactive-marker',
     title: 'Interactive Marker',
-    description: 'RViz 인터랙티브 마커와 Joint/EEF 컨트롤러로 FFW-SG2를 조작하는 방법입니다.',
+    description: 'MuJoCo 뷰어의 마커를 끌어 FFW-SG2를 조작하는 Joint / EEF 컨트롤러 사용법입니다.',
   },
   {
     to: '/docs/vr-teleoperation/setup',
