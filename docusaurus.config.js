@@ -114,8 +114,6 @@ const config = {
             title: '문서',
             items: [
               {label: '시작하기', to: '/docs/intro'},
-              {label: 'Meta Quest 3', to: '/docs/meta-quest-3/overview'},
-              {label: 'AI WORKER', to: '/docs/ai-worker/overview'},
               {label: '문서 기여 방법', to: '/docs/contributing'},
             ],
           },
@@ -129,7 +127,6 @@ const config = {
           {
             title: '더 보기',
             items: [
-              {label: '업데이트', to: '/blog'},
               {label: 'Docusaurus 문서', href: 'https://docusaurus.io/'},
             ],
           },
